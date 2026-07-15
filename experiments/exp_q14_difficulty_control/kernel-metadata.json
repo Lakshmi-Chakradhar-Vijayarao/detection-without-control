@@ -1,0 +1,14 @@
+{
+  "id": "chakradharvijayarao/exp-q14-difficulty-control-bilateral-oracle-v1",
+  "title": "Exp Q14 Difficulty Control Bilateral Oracle V1",
+  "code_file": "exp_q14_difficulty_control.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

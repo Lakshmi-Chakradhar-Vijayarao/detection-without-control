@@ -1,0 +1,17 @@
+{
+  "id": "chakrivijayrao/rlhf-attenuation-mistral-v1",
+  "title": "RLHF Attenuation Mistral-7B SWA v1",
+  "code_file": "rlhf_attenuation_mistral_v1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": [
+    "mistral-ai/mistral/transformers/7b-v0.1/1"
+  ]
+}

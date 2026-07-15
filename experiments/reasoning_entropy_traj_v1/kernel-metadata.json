@@ -1,0 +1,15 @@
+{
+  "id": "chakrivijayrao/reasoning-entropy-traj-v1",
+  "title": "Reasoning Entropy Traj V1",
+  "code_file": "reasoning_entropy_traj_v1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": ["deepseek-ai/deepseek-r1-distill-qwen-1.5b/transformers/default/1"]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "chakrivijayrao/esm-counterfactual-divergence-v1",
+  "title": "ESM Counterfactual Divergence v1",
+  "code_file": "counterfactual_divergence_v1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

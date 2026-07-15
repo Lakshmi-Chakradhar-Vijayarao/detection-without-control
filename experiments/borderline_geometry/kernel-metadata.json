@@ -1,0 +1,17 @@
+{
+  "id": "chakrivijayrao/borderline-population-geometry-task-1-2",
+  "title": "Borderline Population Geometry — Task 1.2",
+  "code_file": "borderline_geometry.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": [
+    "qwen/qwen2.5/transformers/1.5b-instruct/1"
+  ]
+}

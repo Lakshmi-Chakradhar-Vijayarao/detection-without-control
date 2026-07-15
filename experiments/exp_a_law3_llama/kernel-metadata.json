@@ -1,0 +1,14 @@
+{
+  "id": "chakradharvijayarao/exp-a-law3-llama-v7",
+  "title": "Exp A Law3 Llama Instruct Reasoning V7",
+  "code_file": "exp_a_law3_llama.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

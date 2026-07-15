@@ -1,0 +1,14 @@
+{
+  "id": "lakshmichakradhar/exp-b-fullspace-fisher-v2",
+  "title": "Exp B Full-Space Fisher Ablation V2",
+  "code_file": "exp_b_fullspace_fisher.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

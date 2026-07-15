@@ -1,0 +1,14 @@
+{
+  "id": "chakrivijayrao/false-certainty-v2",
+  "title": "False Certainty Detection V2 — EXP-A Pivot",
+  "code_file": "false_certainty_v2.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": "chakrivijayrao/rlhf-attenuation-universal-v1",
+  "title": "RLHF Attenuation Universal V1",
+  "code_file": "rlhf_attenuation_v1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": [
+    "google/gemma-2/transformers/gemma-2-2b/2",
+    "mistral-ai/mistral/transformers/7b-v0.1/1"
+  ]
+}

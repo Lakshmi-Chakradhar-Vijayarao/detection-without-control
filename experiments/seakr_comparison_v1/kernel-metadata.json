@@ -1,0 +1,17 @@
+{
+  "id": "chakrivijayrao/seakr-comparison-v1",
+  "title": "SeaKR Comparison V1",
+  "code_file": "seakr_comparison_v1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": [
+    "qwen-lm/qwen2.5/transformers/7b-instruct/1"
+  ]
+}

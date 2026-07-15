@@ -1,0 +1,13 @@
+{
+  "id": "chakrivijayrao/l2-large-n-v1",
+  "title": "L2 Large N v1",
+  "code_file": "l2_large_n_v1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

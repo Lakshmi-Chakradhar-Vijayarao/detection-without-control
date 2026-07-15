@@ -1,0 +1,14 @@
+{
+  "id": "chakrivijayarao/math-auroc-llama-v3",
+  "title": "Math AUROC Llama Law4 Replication V3 N50 Tok1024",
+  "code_file": "math_auroc_llama_v1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

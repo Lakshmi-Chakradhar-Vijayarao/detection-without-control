@@ -1,0 +1,19 @@
+{
+  "id": "chakrivijayrao/nonlinear-probe-recovery-v3",
+  "title": "Nonlinear Probe Recovery C3 V3 Fixed Probes",
+  "code_file": "nonlinear_probe_v3.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": [
+    "qwen/qwen2.5/transformers/1.5b/1",
+    "qwen/qwen2.5/transformers/1.5b-instruct/1",
+    "meta-llama/llama-3.2/transformers/3b-instruct/1"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "lakshmichakradhar/perturbation-battery-llama-v1",
+  "title": "Perturbation Battery Llama V1",
+  "code_file": "perturbation_battery_v1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

@@ -1,0 +1,14 @@
+{
+  "id": "chakrivijayrao/exp-l-stage-sweep-v1",
+  "title": "EXP-L Stage Sweep V1",
+  "code_file": "exp_l_stage_sweep_v1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

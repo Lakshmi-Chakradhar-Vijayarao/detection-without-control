@@ -1,0 +1,14 @@
+{
+  "id": "chakrivijayrao/entropy-trajectory-v1-exp-d-temporal-signature",
+  "title": "Entropy Trajectory V1 — EXP-D Temporal Signature",
+  "code_file": "entropy_trajectory_v2.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

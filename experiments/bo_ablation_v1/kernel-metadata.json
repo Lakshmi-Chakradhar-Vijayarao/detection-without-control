@@ -1,0 +1,13 @@
+{
+  "id": "chakrivijayrao/bo-ablation-v1",
+  "title": "BO Ablation v1",
+  "code_file": "bo_ablation_v1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

@@ -1,0 +1,14 @@
+{
+  "id": "chakrivijayrao/scale-extension-v1",
+  "title": "Scale Extension V1",
+  "code_file": "scale_extension_v1.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

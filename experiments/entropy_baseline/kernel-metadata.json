@@ -1,0 +1,18 @@
+{
+  "id": "chakrivijayrao/entropy-baseline-c008-followup",
+  "title": "Entropy Baseline Comparison — C008 Follow-up",
+  "code_file": "entropy_baseline.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": [
+    "qwen/qwen2.5/transformers/1.5b-instruct/1",
+    "meta-llama/llama-3.2/transformers/3b-instruct/1"
+  ]
+}
