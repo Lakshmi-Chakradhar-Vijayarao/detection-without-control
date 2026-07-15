@@ -1,0 +1,95 @@
+{
+  "version": "v2",
+  "config": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "layer_idx": 26,
+    "pca_dim": 64,
+    "pool": 2000,
+    "cal_frac": 0.75,
+    "n_labeled_per_class": 31,
+    "eval_steps": [
+      0,
+      1,
+      2,
+      5,
+      10,
+      25
+    ],
+    "max_steps": 25
+  },
+  "n_param": 152,
+  "n_ctxdep": 31,
+  "step_auroc": {
+    "0": {
+      "auroc": 0.7812,
+      "shuffled_auroc": 0.2031,
+      "n_cal": [
+        23,
+        23
+      ],
+      "n_tst": [
+        8,
+        8
+      ]
+    },
+    "1": {
+      "auroc": 0.6094,
+      "shuffled_auroc": 0.4531,
+      "n_cal": [
+        23,
+        23
+      ],
+      "n_tst": [
+        8,
+        8
+      ]
+    },
+    "2": {
+      "auroc": 0.5938,
+      "shuffled_auroc": 0.625,
+      "n_cal": [
+        23,
+        21
+      ],
+      "n_tst": [
+        8,
+        8
+      ]
+    },
+    "5": {
+      "auroc": null,
+      "n_cal": [
+        7,
+        12
+      ],
+      "n_tst": [
+        1,
+        5
+      ]
+    },
+    "10": {
+      "auroc": null,
+      "n_cal": [
+        0,
+        8
+      ],
+      "n_tst": [
+        0,
+        5
+      ]
+    },
+    "25": {
+      "auroc": null,
+      "n_cal": [
+        0,
+        7
+      ],
+      "n_tst": [
+        0,
+        4
+      ]
+    }
+  },
+  "verdict": "FLAT",
+  "elapsed_s": 2829.2
+}

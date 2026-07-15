@@ -1,0 +1,24 @@
+{
+  "INSTRUCT": {
+    "model": "meta-llama/Llama-3.2-3B-Instruct",
+    "layer_used": 26,
+    "n_layers_total": 28,
+    "L1": {
+      "auroc": 0.6837,
+      "bootstrap_mean": 0.8435,
+      "ci_95_low": 0.7325,
+      "ci_95_high": 0.9322,
+      "shuffled_auroc": 0.6036,
+      "n_param": 200,
+      "n_ctxdep": 114,
+      "n_train": 85,
+      "n_test": 58,
+      "signal_valid": false
+    },
+    "L2": {
+      "auroc": NaN,
+      "n_cc": 0,
+      "n_cw": 0
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "probes": {
+    "Fisher+PCA64": {
+      "auroc": 0.7407,
+      "bootstrap_mean": 0.7424,
+      "ci_95_low": 0.6377,
+      "ci_95_high": 0.8434,
+      "shuffled_auroc": 0.4745,
+      "condition_number": 18.38,
+      "explained_variance_ratio": 0.6655,
+      "n_components_requested": 64,
+      "n_components_actual": 64
+    },
+    "Fisher+PCA128": {
+      "auroc": 0.749,
+      "bootstrap_mean": 0.7495,
+      "ci_95_low": 0.6467,
+      "ci_95_high": 0.8487,
+      "shuffled_auroc": 0.4898,
+      "condition_number": 36.71,
+      "explained_variance_ratio": 0.8654,
+      "n_components_requested": 128,
+      "n_components_actual": 128
+    },
+    "Fisher+PCA256": {
+      "auroc": 0.6983,
+      "bootstrap_mean": 0.7009,
+      "ci_95_low": 0.5892,
+      "ci_95_high": 0.8166,
+      "shuffled_auroc": 0.4642,
+      "condition_number": 792.35,
+      "explained_variance_ratio": 0.9997,
+      "n_components_requested": 256,
+      "n_components_actual": 256
+    },
+    "Fisher+PCA512": {
+      "error": "n_components=512 must be between 0 and min(n_samples, n_features)=262 with svd_solver='full'"
+    },
+    "Fisher_full": {
+      "auroc": 0.7531,
+      "bootstrap_mean": 0.7539,
+      "ci_95_low": 0.6419,
+      "ci_95_high": 0.8499,
+      "shuffled_auroc": 0.4694,
+      "note": "LSQR shrinkage='auto', no PCA compression"
+    },
+    "LogReg_full": {
+      "auroc": 0.7397,
+      "bootstrap_mean": 0.7418,
+      "ci_95_low": 0.6287,
+      "ci_95_high": 0.8432
+    },
+    "MLP_full": {
+      "auroc": 0.7206,
+      "note": "hidden_sizes=(256,64), relu, early_stopping"
+    }
+  },
+  "direction_cosims": {
+    "PCA64_vs_full": 0.4566,
+    "PCA64_vs_Fisher+PCA128": 0.6127,
+    "PCA64_vs_Fisher+PCA256": 0.2531,
+    "PCA64_vs_Fisher_full": 0.4566,
+    "PCA64_vs_LogReg_full": 0.3835
+  },
+  "reference_auroc_pca64": 0.7407,
+  "verdict": "PCA_VALIDATED",
+  "nonlinear_verdict": "NO_NONLINEAR_RECOVERY",
+  "n_param": 175,
+  "n_ctxdep": 175,
+  "hidden_dim": 1536,
+  "experiment": "EXP_B_FULLSPACE_FISHER",
+  "date": "2026-07-12"
+}

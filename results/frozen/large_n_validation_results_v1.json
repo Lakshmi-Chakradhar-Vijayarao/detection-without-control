@@ -1,0 +1,46 @@
+{
+  "config": {
+    "n_target": 200,
+    "pool_size": 5000,
+    "layer_idx": 26,
+    "pca_dim": 64,
+    "train_frac": 0.75,
+    "n_bootstrap": 1000,
+    "oracle": {
+      "param_min_f1": 0.5,
+      "ctxdep_max_f1": 0.05,
+      "ctxdep_min_ctx_f1": 0.5
+    }
+  },
+  "models": {
+    "qwen25_1.5b_instruct": {
+      "name": "qwen25_1.5b_instruct",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "n_param": 200,
+      "n_ctxdep": 121,
+      "n_per_class": 121,
+      "status": "COMPLETE",
+      "layer_idx": 26,
+      "n_train_per_class": 90,
+      "n_test_per_class": 31,
+      "fisher_pca64": {
+        "auroc": 0.6566,
+        "ci_lo": 0.5219,
+        "ci_hi": 0.7903,
+        "shuffled_auroc": 0.4495,
+        "shuffled_status": "CLEAN"
+      },
+      "logistic_l2": {
+        "auroc": 0.6493,
+        "ci_lo": 0.5102,
+        "ci_hi": 0.7825
+      }
+    },
+    "llama3.2_3b_instruct": {
+      "name": "llama3.2_3b_instruct",
+      "model_id": "meta-llama/Llama-3.2-3B-Instruct",
+      "status": "FAILED_LOAD: You are trying to access a gated repo.\nMake sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct.\n401 Client Error. (Request ID: Root=1-6a35c5e3-582b0e516d0267c15979b901;b62ae996-1d47-4fe0-82db-97db4f22466b)\n\nCannot access gated repo for url https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct/resolve/main/config.json.\nAccess to model meta-llama/Llama-3.2-3B-Instruct is restricted. You must have access to it and be authenticated to access it. Please log in."
+    }
+  },
+  "elapsed_s": 11627.1
+}

@@ -1,0 +1,65 @@
+{
+  "version": "v3",
+  "frozen_date": "2026-06-18",
+  "kaggle_kernel": "chakradharvijayarao/step-index-auroc-profile-task-1-1",
+  "config": {
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "layer_idx": 26,
+    "pca_dim": 64,
+    "pool": 4000,
+    "n_cv_folds": 5,
+    "min_gen_tokens": 8,
+    "eval_steps": [0, 1, 2, 5, 10],
+    "max_steps": 10,
+    "max_gen": 12
+  },
+  "n_param": 46,
+  "n_ctxdep": 44,
+  "eos_rejected": 279,
+  "n_per_class": 44,
+  "step_auroc": {
+    "0": {
+      "auroc": 0.6389,
+      "shuffled": 0.4772,
+      "n_param": 44,
+      "n_ctxdep": 44,
+      "n_used": 44
+    },
+    "1": {
+      "auroc": 0.683,
+      "shuffled": 0.4133,
+      "n_param": 44,
+      "n_ctxdep": 44,
+      "n_used": 44
+    },
+    "2": {
+      "auroc": 0.762,
+      "shuffled": 0.4966,
+      "n_param": 44,
+      "n_ctxdep": 44,
+      "n_used": 44
+    },
+    "5": {
+      "auroc": 0.7904,
+      "shuffled": 0.4821,
+      "n_param": 44,
+      "n_ctxdep": 44,
+      "n_used": 44
+    },
+    "10": {
+      "auroc": 0.9056,
+      "shuffled": 0.4833,
+      "n_param": 16,
+      "n_ctxdep": 38,
+      "n_used": 16
+    }
+  },
+  "verdict": "MONOTONE_RISE",
+  "elapsed_s": 5333.7,
+  "notes": {
+    "eos_confound": "279/4000 items rejected by EOS filter (min_gen_tokens=8). Only items generating >= 8 tokens nocontext are included.",
+    "step10_imbalance": "At step=10, only 16/44 PARAM items still generating (vs 38 CTX_DEP). AUROC=0.9056 computed on balanced n=16/class. PARAM survivors are verbose-answer items.",
+    "finding": "MONOTONE_RISE: For EOS-filtered verbose items, Fisher+PCA64 AUROC rises monotonically from 0.639 (step-0) to 0.906 (step-10). Contradicts PEAK_AT_1 hypothesis.",
+    "two_populations": "Short-answer PARAM items: step-0 signal then EOS at step 2-4 (not captured here — rejected by EOS filter). Verbose items: signal grows through generation. The bilateral oracle 'step-1 is privileged' claim was based on comparison to prefill (step-0 = last prompt token in ESM v33), not within-generation comparison."
+  }
+}
