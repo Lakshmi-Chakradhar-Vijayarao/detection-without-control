@@ -1,0 +1,15 @@
+{
+  "id": "chakrivijayrao/early-exit-causal-v2",
+  "title": "Early Exit Causal V2 N500",
+  "code_file": "early_exit_causal_v2.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": ["deepseek-ai/deepseek-r1-distill-qwen-1.5b/transformers/default/1"]
+}

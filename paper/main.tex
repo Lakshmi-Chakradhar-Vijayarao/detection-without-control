@@ -561,6 +561,8 @@ Phi-3.5-Mini-Instruct & Phi & 200 & \textbf{0.846} & 0.499 & [0.76, 0.92] \\
 
 \noindent\small\textsuperscript{a}Two Mistral versions were used: v0.2 for L1 (Table~\ref{tab:l1_auroc}) and v0.3 for L2 CO labeling (Table~\ref{tab:co_l2}). Both are instruction-tuned 7B checkpoints from the same model family; the architectural signal is stable across minor-version boundaries.\par\medskip
 
+\noindent\textbf{Note on earlier L1 estimates.} Earlier versions of this work reported L1 AUROCs in the 0.97--0.99 range using Fisher \emph{trajectory} features---probing hidden states aggregated across all generation steps rather than step-1 only. Under the present measurement protocol (step-1 hidden states, large-$N$ balanced bilateral oracle, shuffled control), those estimates do not replicate: C012 (\textsc{falsified}) catalogues the degenerate SVD covariance that inflated small-$N$ values. The 0.731--0.846 range represents the proper large-$N$, step-1, clean-shuffle measurement.\par\medskip
+
 Architecture spread: [0.731--0.846]. All five models are instruction-tuned transformers
 in the capability Goldilocks zone on TriviaQA. No architecture falls below 0.70; all
 shuffled controls are CLEAN. This confirms Regularity~1 at five-architecture evidence strength.
@@ -675,6 +677,23 @@ Three competing interpretations are currently consistent with this evidence
 EXP-F (commit-point states $\to$ CC/CW prediction) returned BLIND at $N$\,=\,40/class:
 AUROC\,=\,0.650, commit timing identical for CC and CW (commit\_pct 98.0\% vs.\ 97.9\%).
 A larger-$N$ follow-up ($N \geq 100$/class) is required.
+
+\textbf{Clarification: BO\_Transfer vs.\ cross-task cosim (C014 FALSIFIED).}
+These two measurements are compatible, not contradictory. \textbf{Cross-task cosim}
+(C014: mean cosim $= 0.021$, near the noise floor for 4096-dim random unit vectors)
+measures whether the raw LDA weight vector trained on PARAM/CTX\_DEP points in the
+same direction as the raw LDA weight vector trained on CC/CW---it does not.
+\textbf{BO\_Transfer AUROC\,=\,0.880} measures whether the full trained probe
+(PCA64 projection + LDA decision boundary) achieves above-chance discrimination when
+applied to CC/CW labels without retraining---it does. A PCA64+LDA probe uses a
+64-dimensional projection and a covariance-weighted boundary, not a single direction.
+The probe can transfer because both tasks load on an overlapping subspace
+(epistemic accessibility) even though their respective top LDA directions in the
+original 4096-dim space do not align. Direction non-alignment (C014) and
+subspace-level probe transfer (C018) are simultaneously possible. This is
+consistent with \citet{azizian2025orthogonal}: individual truth-direction axes are
+task-specific, but higher-dimensional probe boundaries can generalize across tasks
+that share a latent epistemic structure.
 
 \subsection{CO Labeling: L2 Recovery Across Three Architectures (C036)}
 \label{sec:co_labeling}
