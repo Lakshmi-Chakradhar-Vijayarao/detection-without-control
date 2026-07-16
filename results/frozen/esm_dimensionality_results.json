@@ -1,0 +1,74 @@
+{
+  "experiment": "esm_dimensionality_v1",
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "layer": 26,
+  "n_per_class": 60,
+  "n_total": 240,
+  "class_counts_raw": {
+    "CTX_DEP": 459,
+    "PARAM_HIGH": 60,
+    "PARAM_LOW": 60,
+    "CONFAB": 984
+  },
+  "median_param_top1_prob": 0.6050954759120941,
+  "pca_prereduction": {
+    "n_components": 50,
+    "cumulative_variance": 0.5978094339370728
+  },
+  "lda_eigenspectrum": {
+    "explained_variance_ratio": [
+      0.3591624494074076,
+      0.11656952454478428,
+      0.09380006840129107
+    ],
+    "dim1": 0.3591624494074076,
+    "dim2": 0.11656952454478428,
+    "dim3": 0.09380006840129107,
+    "dim1_dim2_cumulative": 0.4757319739521919
+  },
+  "pairwise_auroc": {
+    "CTX_DEP_vs_PARAM_HIGH": {
+      "all_dims": 0.8763888888888889,
+      "dim1_only": 0.5972222222222222,
+      "dim2_only": 0.7875
+    },
+    "CTX_DEP_vs_PARAM_LOW": {
+      "all_dims": 0.9597222222222221,
+      "dim1_only": 0.9,
+      "dim2_only": 0.6513888888888889
+    },
+    "CTX_DEP_vs_CONFAB": {
+      "all_dims": 0.648611111111111,
+      "dim1_only": 0.5527777777777778,
+      "dim2_only": 0.6791666666666666
+    },
+    "PARAM_HIGH_vs_PARAM_LOW": {
+      "all_dims": 0.7625,
+      "dim1_only": 0.7583333333333333,
+      "dim2_only": 0.6722222222222223
+    },
+    "PARAM_HIGH_vs_CONFAB": {
+      "all_dims": 0.9652777777777777,
+      "dim1_only": 0.5694444444444444,
+      "dim2_only": 0.8986111111111112
+    },
+    "PARAM_LOW_vs_CONFAB": {
+      "all_dims": 0.976388888888889,
+      "dim1_only": 0.8666666666666665,
+      "dim2_only": 0.7888888888888889
+    }
+  },
+  "dim2_correlations": {
+    "rho_p_top1": 0.2744904254921359,
+    "p_p_top1": 1.6081858913611683e-05,
+    "rho_f1_nc": 0.4389170168091586,
+    "p_f1_nc": 1.0092786896356507e-12,
+    "mannwhitney_PARAM_HIGH_vs_LOW": {
+      "statistic": 2429.0,
+      "p_value": 0.0009710763582463551
+    },
+    "dim2_captures_confidence": true
+  },
+  "binary_baseline_auroc": 0.8013888888888889,
+  "verdict": "MULTI_D: Complex multi-dimensional structure"
+}

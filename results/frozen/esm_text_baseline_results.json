@@ -1,0 +1,18 @@
+{
+  "experiment": "esm_text_baseline_v1",
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "n_pairs_balanced": 400,
+  "n_ctxdep": 200,
+  "n_param": 200,
+  "auroc": {
+    "tfidf_text": 0.5314,
+    "hand_difficulty": 0.5086,
+    "j_prefill": 0.8311,
+    "j_step1": 0.8311,
+    "sbert_text": 0.5705
+  },
+  "gap_step1_vs_tfidf": 0.2997,
+  "kill_criterion_2": "CLEAR",
+  "question_length_rho": 0.041,
+  "question_length_pval": 0.41449297265837803
+}

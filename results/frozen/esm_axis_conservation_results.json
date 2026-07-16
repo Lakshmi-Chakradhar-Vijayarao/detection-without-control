@@ -1,0 +1,124 @@
+{
+  "experiment": "esm_axis_conservation_v1",
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "n_balanced": 200,
+  "n_unique_tokens": 27,
+  "layer_aurocs_step1": [
+    0.7655,
+    0.7295,
+    0.7100000000000001,
+    0.7555000000000002,
+    0.797,
+    0.8095000000000001,
+    0.8045,
+    0.8240000000000001,
+    0.8114999999999999,
+    0.833,
+    0.8004999999999999,
+    0.8065,
+    0.8264999999999999,
+    0.8274999999999999,
+    0.8524999999999998,
+    0.8280000000000001,
+    0.8184999999999999,
+    0.8130000000000001,
+    0.8140000000000001,
+    0.8225000000000001,
+    0.8105,
+    0.8,
+    0.8135,
+    0.8200000000000001,
+    0.8219999999999998,
+    0.8099999999999999,
+    0.8230000000000001,
+    0.826,
+    0.8215
+  ],
+  "axis_conservation": {
+    "mean_abs_cosim_offdiag": 0.17866397060408093,
+    "mean_cosim_offdiag": 0.011512287917806596,
+    "max_abs_cosim": 0.9121263209720784,
+    "pca_explained_variance": [
+      0.2771884480794319,
+      0.09673469310728033,
+      0.09238175052226259,
+      0.07492151324451762,
+      0.05995652138332088,
+      0.047395542617555665,
+      0.04124951144817189,
+      0.03450877248986438,
+      0.03275395564908931,
+      0.02954301635634126
+    ],
+    "pc1_explained": 0.2771884480794319,
+    "pc1_pc2_cumulative": 0.3739231411867122,
+    "mean_adjacent_cosim": -0.11460852019098211,
+    "verdict": "WEAK_CONSERVATION"
+  },
+  "vocabulary_test": {
+    "l0_lookup_vs_twopass_diff": 0.0,
+    "within_token_aurocs": {
+      "0": {
+        "n_mixed": 177,
+        "within_auroc": 0.7333,
+        "full_auroc": 0.7655,
+        "signal_retention": 0.8788
+      },
+      "1": {
+        "n_mixed": 177,
+        "within_auroc": 0.722,
+        "full_auroc": 0.7295,
+        "signal_retention": 0.9674
+      },
+      "2": {
+        "n_mixed": 177,
+        "within_auroc": 0.7235,
+        "full_auroc": 0.71,
+        "signal_retention": 1.0645
+      },
+      "5": {
+        "n_mixed": 177,
+        "within_auroc": 0.7775,
+        "full_auroc": 0.8095,
+        "signal_retention": 0.8967
+      },
+      "10": {
+        "n_mixed": 177,
+        "within_auroc": 0.7919,
+        "full_auroc": 0.8005,
+        "signal_retention": 0.9715
+      },
+      "15": {
+        "n_mixed": 177,
+        "within_auroc": 0.7883,
+        "full_auroc": 0.828,
+        "signal_retention": 0.8791
+      },
+      "20": {
+        "n_mixed": 177,
+        "within_auroc": 0.7912,
+        "full_auroc": 0.8105,
+        "signal_retention": 0.9377
+      },
+      "24": {
+        "n_mixed": 177,
+        "within_auroc": 0.8184,
+        "full_auroc": 0.822,
+        "signal_retention": 0.9889
+      },
+      "26": {
+        "n_mixed": 177,
+        "within_auroc": 0.7979,
+        "full_auroc": 0.823,
+        "signal_retention": 0.9221
+      },
+      "28": {
+        "n_mixed": 177,
+        "within_auroc": 0.8091,
+        "full_auroc": 0.8215,
+        "signal_retention": 0.9614
+      }
+    },
+    "verdict": "GEOMETRIC: L1 transformer adds substantial signal beyond token identity"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "experiment": "esm_state_tests_v1",
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "layer": 26,
+  "calibration_n": 160,
+  "calibration_auroc": 1.0,
+  "test_A_h1_f1_correlation": {
+    "n": 80,
+    "spearman_rho": -0.26561832424814324,
+    "p_value": 0.017250820915253835,
+    "significant": true,
+    "direction_correct": false,
+    "interpretation": "ANTI_H1"
+  },
+  "test_B_confabulation_detection": {
+    "n_ctx": 80,
+    "n_confab": 80,
+    "auroc": 0.84390625,
+    "significant": true,
+    "interpretation": "MULTI_OUTCOME_CONFIRMED"
+  },
+  "test_C_self_consistency": {
+    "n": 80,
+    "spearman_rho": -0.12339607550243005,
+    "p_value": 0.2754966783551731,
+    "mean_sc": 0.6402225969960458,
+    "significant": false,
+    "interpretation": "NULL"
+  },
+  "delta_compute_h4": {
+    "n": 200,
+    "spearman_rho": 0.15531973467366167,
+    "p_value": 0.02808266536861154,
+    "mean_delta_f1": 0.1765078023270224,
+    "significant": true,
+    "direction_correct": true,
+    "interpretation": "H4_SUPPORTED"
+  },
+  "n_significant": 2,
+  "delta_compute_significant": true,
+  "state_verdict": "LEVEL_3_CANDIDATE: Multi-outcome + causal routing confirmed"
+}

@@ -1,0 +1,45 @@
+{
+  "experiment": "esm_table2_benchmark_v1",
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "probe_layer": 26,
+  "n_eval": 200,
+  "n_cal": 160,
+  "cal_auroc": 0.9859375,
+  "gate_routing_auroc_eval": 0.7905701754385965,
+  "results_by_rate": {
+    "0.0": {
+      "NEVER_RETRIEVE": 0.3064701762490037
+    },
+    "0.15": {
+      "RANDOM": 0.35353457868075033,
+      "ORACLE": 0.3920489607291073,
+      "TARG": 0.3814559079076523,
+      "EPISTEMIC_GATE": 0.4079392788372672
+    },
+    "0.3": {
+      "RANDOM": 0.4337693233422192,
+      "ORACLE": 0.4821049947731912,
+      "TARG": 0.4429731271834275,
+      "EPISTEMIC_GATE": 0.5137730182672982
+    },
+    "0.5": {
+      "RANDOM": 0.5178217541198447,
+      "ORACLE": 0.5919305587257763,
+      "TARG": 0.5177189803155035,
+      "EPISTEMIC_GATE": 0.6119856739377072
+    },
+    "0.7": {
+      "RANDOM": 0.6289156842286624,
+      "ORACLE": 0.7157078242180159,
+      "TARG": 0.6218777416706339,
+      "EPISTEMIC_GATE": 0.6653420289205119
+    },
+    "1.0": {
+      "ALWAYS_RETRIEVE": 0.736056445996384
+    }
+  },
+  "pareto_wins": {
+    "0.3": true,
+    "0.5": true
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "experiment": "esm_framing_v1",
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "n_balanced": 300,
+  "n_ctxdep": 150,
+  "layer": 26,
+  "results": {
+    "standard": {
+      "prefill": {
+        "auroc": 0.8308888888888889,
+        "se": 0.01765904797288466
+      },
+      "step1": {
+        "auroc": 0.8577777777777778,
+        "se": 0.011737877907772669
+      },
+      "delta": 0.0269
+    },
+    "answer_frame": {
+      "prefill": {
+        "auroc": 0.8091111111111111,
+        "se": 0.027500662169356684
+      },
+      "step1": {
+        "auroc": 0.7635555555555555,
+        "se": 0.011914924762614559
+      },
+      "delta": -0.0456
+    },
+    "cot_frame": {
+      "prefill": {
+        "auroc": 0.8353333333333332,
+        "se": 0.03071718865736814
+      },
+      "step1": {
+        "auroc": 0.7911111111111111,
+        "se": 0.027464005624421774
+      },
+      "delta": -0.0442
+    },
+    "hedge_frame": {
+      "prefill": {
+        "auroc": 0.8335555555555556,
+        "se": 0.020239065025005967
+      },
+      "step1": {
+        "auroc": 0.8457777777777779,
+        "se": 0.01053342709756673
+      },
+      "delta": 0.0122
+    }
+  },
+  "h1_verdict": "H1_REJECTED: Answer framing does NOT raise prefill AUROC",
+  "h1_framing_lift": -0.0218,
+  "standard_commitment_delta": 0.0269
+}

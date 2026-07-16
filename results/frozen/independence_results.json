@@ -1,0 +1,19 @@
+{
+  "n_total": 1600,
+  "n_param": 800,
+  "n_ctxdep": 800,
+  "source": "synthetic",
+  "corr_j_entropy": 0.0066430179950888145,
+  "corr_j_margin": 0.02169145222235055,
+  "corr_j_velocity": 0.5012964250955066,
+  "corr_entropy_margin": -0.015975035354512925,
+  "auroc_j_know": 0.9997703125,
+  "auroc_j_velocity": 0.6911640625,
+  "auroc_entropy": 0.5076890625,
+  "auroc_margin": 0.515246875,
+  "auroc_p_top1": 0.50909375,
+  "auroc_behavioral_ensemble": 0.51998125,
+  "auroc_gap": 0.4797890625000001,
+  "independence_confirmed": true,
+  "ceiling_confirmed": true
+}
