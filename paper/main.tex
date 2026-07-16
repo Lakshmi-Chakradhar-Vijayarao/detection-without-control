@@ -902,34 +902,44 @@ generalizes across both R1 architectures (\S\ref{sec:laws}, Regularity~4).
 \subsection{Early Exit Causal Validation (EXP-I)}
 
 EXP-B established that $\approx$80\% of thinking tokens occur post-commitment
-(observational). EXP-I converts this to a causal test: for each of $N$\,=\,200
-questions, generation is run twice---once to completion and once truncated at the
-detected commit point. $\Delta$f1\,=\,f1\_full $-$ f1\_truncated.
+(observational). EXP-I converts this to a causal test: for each question, generation
+runs twice---once to completion and once truncated at the detected commit point.
+$\Delta$f1\,=\,f1\_full $-$ f1\_truncated.
+
+\textbf{Replication structure.} An initial run at $N$\,=\,200 returned mean
+$\Delta$f1\,=\,$+$0.0059\,$\pm$\,0.0474 SD, $p$\,=\,0.08 two-tailed (borderline,
+reported as such). A pre-registered follow-up at $N$\,=\,500 was run to tighten the
+confidence interval; both runs are reported below. No result is selectively
+suppressed. If the $N$\,=\,500 run does not clear $p$\,<\,0.05, C028 remains
+SUPPORTED (not CONFIRMED) and the text is updated accordingly.
 
 \begin{table}[h!]
 \centering
-\caption{EXP-I early exit causal results (DeepSeek-R1-Distill-Qwen-1.5B, $N$\,=\,200).}
-\begin{tabular}{lc}
+\caption{EXP-I sequential replications: $N$\,=\,200 (initial) and $N$\,=\,500
+  (pre-registered follow-up). Both results reported. Model: DeepSeek-R1-Distill-Qwen-1.5B.}
+\begin{tabular}{lcc}
 \toprule
-Metric & Value \\
+Metric & Run 1 ($N$\,=\,200) & Run 2 ($N$\,=\,500) \\
 \midrule
-$n$ committed & 199/200 (99.5\%) \\
-Mean $\Delta$f1 & $+$0.0059 $\pm$ 0.0474 SD \\
-SE & 0.0034 \\
-95\% CI & [$-$0.0007, $+$0.0125] \\
-$p$ (two-tailed) & 0.08 \\
-$p$ (one-tailed, pre-registered directional) & 0.04 \\
-Helped ($\Delta > 0.05$) & 7.54\% \\
-Hurt ($\Delta < -0.05$) & 4.02\% \\
-Mean commit\% & \textbf{87.4\%} \\
+$n$ committed & 199/200 (99.5\%) & \textit{[pending]} \\
+Mean $\Delta$f1 & $+$0.0059 $\pm$ 0.0474 SD & \textit{[pending]} \\
+SE & 0.0034 & \textit{[pending]} \\
+95\% CI & [$-$0.0007, $+$0.0125] & \textit{[pending]} \\
+$p$ (two-tailed) & 0.08 & \textit{[pending]} \\
+$p$ (Wilcoxon, two-tailed) & --- & \textit{[pending]} \\
+Helped ($\Delta > 0.05$) & 7.54\% & \textit{[pending]} \\
+Hurt ($\Delta < -0.05$) & 4.02\% & \textit{[pending]} \\
+Mean commit\% & \textbf{87.4\%} & \textit{[pending]} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Verdict: MINIMAL\_QUALITY\_LOSS (C028).} Truncating at commit saves 87\% of
-thinking tokens at $+$0.006 F1 cost (borderline significant; running mean stable at
-$+$0.004 to $+$0.006 from item 50 through 200). The 1.9:1 helped/hurt ratio confirms
-elaboration is directionally beneficial but not essential. Together with EXP-H (centroid patching shows max $\Delta$F1\,=\,$+$0.0004---the
+\textbf{Verdict: MINIMAL\_QUALITY\_LOSS (C028, SUPPORTED).} Run 1 shows truncating
+at commit saves 87\% of thinking tokens at $+$0.006 F1 cost. The effect is
+directionally consistent (1.9:1 helped/hurt ratio; running mean stable at
+$+$0.004 to $+$0.006 from item 50 through 200) but borderline by two-tailed
+threshold. Run 2 is the confirmatory test; the verdict will be updated when results
+are available. Together with EXP-H (centroid patching shows max $\Delta$F1\,=\,$+$0.0004---the
 detection axis is dissociable from the answer-selection axis), EXP-I establishes the
 correct framing: the Fisher probe detects \emph{when} the answer is decided, not
 \emph{what} decides it. The commit point is a timing readout, not a causal control point.
