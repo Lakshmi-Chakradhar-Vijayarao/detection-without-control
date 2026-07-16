@@ -68,40 +68,37 @@
 
 % ── Abstract ──────────────────────────────────────────────────────────────────
 \begin{abstract}
-The hidden-state direction that best separates confident-correct from confident-wrong
-answers is \textbf{not} the direction that causally controls which answer the model
-generates. We establish this dissociation using Fisher+PCA64 linear probes
-(AUROC\,=\,0.854; gap\,=\,0.240 over single-pass entropy baseline; gap\,=\,0.166 over
-self-consistency with $N$\,=\,5 samples---the strongest behavioral proxy;
-$N$\,=\,100/class, entropy-matched; both gaps from held-out evaluation, Fisher\,=\,0.779) and
-centroid-patching interventions that produce max
-$\Delta$F1\,=\,$+$0.0004 across all layers and patch magnitudes $\lambda$\,=\,0--4.0 (EXP-H)---indistinguishable
-from zero. This finding is possible because when both classes have identically low
-output entropy, no output-space signal---entropy, calibration, self-consistency---can
-separate them by construction; hidden states carry information that output distributions
-do not.
+Language models frequently generate wrong answers with high confidence. Behavioral
+signals available at output time---entropy, calibration, self-consistency---cannot
+detect this confabulation by construction: once information is compressed to a
+vocabulary distribution, the hidden-state structure that preceded it is gone. Two
+distinct questions arise: whether hidden states carry detectable structure that output
+distributions miss, and whether that structure causally controls which answer the model
+generates. Existing work has not systematically separated them.
 
-We introduce the \textbf{bilateral oracle protocol}, a two-pass behavioral labeling
-design that isolates the confabulation-detection task from knowledge-source routing
-by construction, without accessing hidden states. In the entropy-matched zone where
-output statistics are blind, a Fisher+PCA64 linear probe at L26 step-1 achieves
-AUROC\,=\,0.854 and cross-validated AUROC\,=\,0.7629\,$\pm$\,0.0120
-($N$\,=\,500/class; C040~\textsc{confirmed}). CO labeling extends this detection
-result to three confirmed architectures (Gemma\,=\,0.8368, Mistral\,=\,0.8580;
-C036~\textsc{confirmed}; Llama plain CO INCONCLUSIVE---C047).
+The answer to the first question is yes; the answer to the second is no.
 
-To test whether this detection geometry \emph{controls} answer selection, we patch
-along the Fisher LDA class-mean axis at $\lambda$\,=\,0--4.0 across all probed
-layers (EXP-H). Max $\Delta$F1\,=\,$+$0.0004---indistinguishable from zero. This
-is consistent with \citet{cox2026decoding}, who demonstrated causal control via
-a \emph{different} direction (the committed-answer direction). The two axes are
-empirically dissociable: one reads whether an answer is correct; the other writes
-which answer gets generated.
+\textbf{Detection (L2):} We introduce the \textbf{bilateral oracle protocol}, a
+two-pass behavioral labeling design that separates epistemic state from output quality
+without accessing hidden states. In the entropy-matched zone where all behavioral
+proxies are blind by construction, Fisher+PCA64 at L26 step-1 achieves
+AUROC\,=\,0.854 (gap\,=\,0.240 over entropy; gap\,=\,0.166 over self-consistency
+$N$\,=\,5; both gaps from held-out evaluation, $N$\,=\,100/class, Fisher\,=\,0.779;
+CV\,=\,0.7629\,$\pm$\,0.0120, $N$\,=\,500/class; C040~\textsc{confirmed}). CO
+labeling extends detection to three confirmed architectures (Gemma\,=\,0.8368,
+Mistral\,=\,0.8580; C036~\textsc{confirmed}; Llama CO INCONCLUSIVE---C047).
 
-For scope context: output entropy dominates Fisher at L1 (knowledge-source routing;
-AUROC 0.87--0.90 vs.\ 0.73--0.85), confirming Fisher is essential only at L2.
-Reasoning models commit to answer direction within 25\% of thinking tokens
-across three architectures, supporting early-exit routing at the commit point.
+\textbf{Causal test (EXP-H):} Centroid patching along the Fisher LDA class-mean
+axis at $\lambda$\,=\,0--4.0 across all probed layers yields max
+$\Delta$F1\,=\,$+$0.0004---indistinguishable from zero. The detection axis does not
+write answers \citep{cox2026decoding}; the two geometric directions are empirically
+dissociable.
+
+\textbf{Scope:} Output entropy dominates Fisher at L1 (knowledge-source routing;
+AUROC 0.87--0.90 vs.\ 0.73--0.85), confirming Fisher is essential only at the
+confabulation layer. Reasoning models commit to answer direction within 25\% of
+thinking tokens across three architectures and two distillation lineages, supporting
+early-exit routing.
 
 \smallskip\noindent
 \textbf{Keywords:} confabulation detection, epistemic legibility, Fisher LDA,
@@ -115,9 +112,14 @@ bilateral oracle, causal probing, commitment dynamics, knowledge-source routing
 % ── 1. Introduction ───────────────────────────────────────────────────────────
 \section{Introduction}
 
-The purpose of this work is not to introduce another probing method.
-It is to establish experimental methodology for studying internal computation
-independently of any specific estimator.
+Language models frequently generate wrong answers with high confidence. Behavioral
+signals available at output time---entropy, calibration, self-consistency---cannot
+detect this confabulation by construction: once information is compressed to a
+vocabulary distribution, the hidden-state structure that preceded it is gone. Whether
+hidden states carry detectable structure that output distributions miss is one question.
+Whether that structure causally controls which answer the model generates is a different
+one. Conflating them produces apparently contradictory results in the probing literature;
+separating them is the starting point of this work.
 
 Every transformer inference computes an implicit answer to the question: \emph{can
 I answer this from what I know, or do I need external context?} This knowledge-source
