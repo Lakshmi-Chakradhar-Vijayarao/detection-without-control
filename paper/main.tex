@@ -167,9 +167,11 @@ the task's information content and confirms Fisher is uniquely essential only at
 \textbf{Additional finding (L3):}
 Reasoning-distilled models commit to their answer direction within 25\%
 of think-block tokens, across three architectures and two training lineages
-(R1-Qwen commit\%\,=\,75.8\%, R1-Llama\,=\,82.9\%, Qwen3\,=\,99.8\%; both R1 results
-with clean shuffled controls). The detection probe trained on confabulation items
-transfers to commit-point hidden states (EXP-F; AUROC\,=\,0.6500).
+(R1-Qwen commit\%\,=\,75.8\%, R1-Llama\,=\,82.9\%, Qwen3\,=\,99.8\%; C049 threshold-invariant).
+Truncating generation at the commit point costs $+$0.012~F1 at 90\% token
+savings---established causally, not observationally (EXP-I, $N$\,=\,500, $t$\,=\,6.0,
+$p$\,$<$\,0.0001; C028 \textsc{confirmed}). The confabulation probe also transfers to
+commit-point hidden states (EXP-F; AUROC\,=\,0.6500).
 
 \paragraph{Measurement precedes mechanism.}
 Astronomy measured planetary periods before Newton formulated the inverse-square law.
@@ -1656,9 +1658,9 @@ on divergent task distribution degrades below Base), while L2 follows
 two patterns---opposite directions at different task levels---constitute Regularity~3.
 The training stage effect was replicated at matched $N$\,=\,200/class.
 
-\textbf{Eight claims are confirmed} (C001--C004, C025, C028, C036, C040), twenty-eight are
-supported, five are exploratory, and four are falsified---all maintained in an open
-claims registry (50 total; Appendix~\ref{app:claims}). The falsification record is not
+\textbf{Eight claims are confirmed} (C001--C004, C025, C028, C036, C040), thirty-two are
+supported, five are exploratory, four are falsified, and one is inconclusive
+(C047)---all maintained in an open claims registry (50 total; Appendix~\ref{app:claims}). The falsification record is not
 an appendix; it is the mechanism by which the measurement instrument earned its
 reliability. Each of the four falsifications revealed a specific pathology in the
 original measurement procedure: Fisher LDA degenerate covariance at small~$N$
@@ -1808,7 +1810,7 @@ Natural questions: A benchmark for question answering research.
 \begin{table}[h!]
 \centering
 \small
-\caption{Core claims registry (16 claims). Full registry: \texttt{science/CLAIMS.yaml}. PARAM/CTX\_DEP abbreviated P/C.}
+\caption{Core claims registry (17 claims). Full registry: \texttt{science/CLAIMS.yaml}. PARAM/CTX\_DEP abbreviated P/C.}
 \begin{tabular}{cL{8.5cm}l}
 \toprule
 ID & Claim (abbreviated) & Status \\
@@ -1834,8 +1836,8 @@ C045 & Qwen3-1.7B (non-R1 lineage): commit\_pct\,=\,99.8\%. Teacher-independent.
 \end{tabular}
 \end{table}
 
-\noindent\small\textit{Remaining 36 claims (C005--C007, C009--C011, C013, C015--C016, C018--C021,
-C023, C026--C035, C037--C039, C041, C044, C046--C050) and all kill criteria: see
+\noindent\small\textit{Remaining 33 claims (C005--C007, C009--C011, C013, C015--C016, C018--C021,
+C023, C026--C027, C029--C035, C037--C039, C041, C044, C046--C050) and all kill criteria: see
 \texttt{science/CLAIMS.yaml} in the research repository.}
 
 \section{Experimental Record}
