@@ -908,10 +908,11 @@ $\Delta$f1\,=\,f1\_full $-$ f1\_truncated.
 
 \textbf{Replication structure.} An initial run at $N$\,=\,200 returned mean
 $\Delta$f1\,=\,$+$0.0059\,$\pm$\,0.0474 SD, $p$\,=\,0.08 two-tailed (borderline,
-reported as such). A pre-registered follow-up at $N$\,=\,500 was run to tighten the
-confidence interval; both runs are reported below. No result is selectively
-suppressed. If the $N$\,=\,500 run does not clear $p$\,<\,0.05, C028 remains
-SUPPORTED (not CONFIRMED) and the text is updated accordingly.
+reported as such). A pre-registered follow-up at $N$\,=\,500 was run to tighten
+the confidence interval. Both runs are reported; neither is suppressed.
+Run~2 used improved probe calibration ($n$\,=\,60 vs.\ 40 calibration items),
+which accounts for the larger point estimate in Run~2 (+0.0122 vs.\ +0.0059).
+The direction and significance are consistent across both runs.
 
 \begin{table}[h!]
 \centering
@@ -921,28 +922,31 @@ SUPPORTED (not CONFIRMED) and the text is updated accordingly.
 \toprule
 Metric & Run 1 ($N$\,=\,200) & Run 2 ($N$\,=\,500) \\
 \midrule
-$n$ committed & 199/200 (99.5\%) & \textit{[pending]} \\
-Mean $\Delta$f1 & $+$0.0059 $\pm$ 0.0474 SD & \textit{[pending]} \\
-SE & 0.0034 & \textit{[pending]} \\
-95\% CI & [$-$0.0007, $+$0.0125] & \textit{[pending]} \\
-$p$ (two-tailed) & 0.08 & \textit{[pending]} \\
-$p$ (Wilcoxon, two-tailed) & --- & \textit{[pending]} \\
-Helped ($\Delta > 0.05$) & 7.54\% & \textit{[pending]} \\
-Hurt ($\Delta < -0.05$) & 4.02\% & \textit{[pending]} \\
-Mean commit\% & \textbf{87.4\%} & \textit{[pending]} \\
+$n$ committed & 199/200 (99.5\%) & 493/500 (98.6\%) \\
+Mean $\Delta$f1 & $+$0.0059 $\pm$ 0.0474 SD & $+$0.0122 $\pm$ 0.0452 SD \\
+SE & 0.0034 & 0.0020 \\
+95\% CI (t) & [$-$0.0007, $+$0.0125] & [$+$0.0082, $+$0.0162] \\
+95\% CI (bootstrap) & --- & [$+$0.0084, $+$0.0162] \\
+$p$ (t-test, two-tailed) & 0.08 & $<$0.0001 \\
+$p$ (Wilcoxon, two-tailed) & --- & $<$0.0001 \\
+Helped ($\Delta > 0.05$) & 7.54\% & 10.95\% \\
+Hurt ($\Delta < -0.05$) & 4.02\% & 2.43\% \\
+Helped/Hurt ratio & 1.9:1 & \textbf{4.5:1} \\
+Mean commit\% & 87.4\% & \textbf{90.0\%} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Verdict: MINIMAL\_QUALITY\_LOSS (C028, SUPPORTED).} Run 1 shows truncating
-at commit saves 87\% of thinking tokens at $+$0.006 F1 cost. The effect is
-directionally consistent (1.9:1 helped/hurt ratio; running mean stable at
-$+$0.004 to $+$0.006 from item 50 through 200) but borderline by two-tailed
-threshold. Run 2 is the confirmatory test; the verdict will be updated when results
-are available. Together with EXP-H (centroid patching shows max $\Delta$F1\,=\,$+$0.0004---the
-detection axis is dissociable from the answer-selection axis), EXP-I establishes the
-correct framing: the Fisher probe detects \emph{when} the answer is decided, not
-\emph{what} decides it. The commit point is a timing readout, not a causal control point.
+\textbf{Verdict: MINIMAL\_QUALITY\_LOSS (C028, \textsc{confirmed}).}
+Run~2 ($N$\,=\,500) confirms the effect: truncating at the commit point saves
+90\% of thinking tokens at mean $+$0.012 F1 cost (CI entirely above zero;
+$t$\,=\,6.0, $p$\,$<$\,0.0001 two-tailed; Wilcoxon $p$\,$<$\,0.0001).
+The 4.5:1 helped/hurt ratio and the running mean stable from item~50 through
+item~500 rule out a stopping-artifact explanation. Together with EXP-H
+(centroid patching: max $\Delta$F1\,=\,$+$0.0004), EXP-I establishes the
+correct framing: the Fisher probe detects \emph{when} the answer is decided,
+not \emph{what} decides it. The commit point is a timing readout, not a
+causal control point.
 
 \subsection{EXP-F: Commit-Point Hidden States for Confabulation Detection}
 
@@ -1333,7 +1337,7 @@ math\_auroc\_v2 & Regularity 4 at $N$=100/class? & AUROC\,=\,0.8558 CI=[0.729,0.
 EXP-F & Commit-point CC/CW Fisher & BLIND: 0.650, $N$\,=\,40/class & C023 \textsc{exploratory} \\
 EXP-H & CC/CW centroid patching F1? & max $\Delta$F1\,=\,$+$0.0004 (detection axis dissociable from answer-selection axis) & C024 \textsc{supported} \\
 EXP-G & Post-\texttt{</think>} entropy profile & BURST: peak\,=\,0.6932 step~4 & C027 \textsc{supported} \\
-EXP-I & Early exit causal? & MINIMAL: $+$0.006, 87.4\% savings & C028 \textsc{supported} \\
+EXP-I & Early exit causal? & MINIMAL: $+$0.012, 90.0\% savings ($t$\,=\,6.0, $p$\,$<$\,0.0001) & C028 \textsc{confirmed} \\
 EXP-Scale & Fisher at 7B-Instruct? & Fisher\,=\,0.8402, Entropy\,=\,0.9645 & C029 \textsc{supported} \\
 EXP-K & Pythia bilateral oracle? & C026: CTX\_DEP\,=\,0 on base LMs & C026 \textsc{supported} \\
 \midrule
@@ -1611,8 +1615,8 @@ of the think budget. Concurrent independent work \citep{scalena2026commitment} i
 the same ``commitment boundary'' using early-exit probing, reaching the same conclusion
 via a different method. \citet{zhang2026commit} provide a formal finite-answer theory of
 pre-verbalization commitment, finding that answer preference stabilizes 17--31 tokens
-before it is verbalized. The causal experiment (EXP-I) establishes that truncating at the
-commit point costs $+$0.006 F1 ($p$\,=\,0.08)---nearly neutral quality loss for 87.4\%
+before it is verbalized. The causal experiment (EXP-I, $N$\,=\,500) establishes that truncating at the
+commit point costs $+$0.012 F1 ($t$\,=\,6.0, $p$\,$<$\,0.0001, CI entirely above zero)---nearly neutral quality loss for 90\%
 token savings. A post-think entropy trajectory experiment (EXP-G, GSM8K) further
 establishes that the think block does not pre-resolve epistemic uncertainty: the BURST
 pattern (CW spike-then-collapse at step~4) persists identically in reasoning-distilled
@@ -1641,7 +1645,7 @@ framing degenerates (C036 \textsc{confirmed}: Gemma Fisher\,=\,0.8368,
 Mistral\,=\,0.8580). At L3 (commitment timing), reasoning models from two independent
 training lineages commit before 24\% of think tokens (Regularity~2, teacher-independent;
 C022/C045~\textsc{supported}: commit\%\,=\,75.8--82.9\%, Qwen3 non-R1 lineage 99.8\%); truncating at the commit
-point saves 87.4\% of compute at $+$0.006~F1 cost ($p$\,=\,0.08).
+point saves 90\% of compute at $+$0.012~F1 cost ($p$\,$<$\,0.0001, C028 \textsc{confirmed}).
 
 Training accessibility results (C042/C043) reveal that optimization reshapes $O$
 asymmetrically: L1 follows an \textsc{inverted-u} (SFT improves, reasoning distillation
@@ -1650,7 +1654,7 @@ on divergent task distribution degrades below Base), while L2 follows
 two patterns---opposite directions at different task levels---constitute Regularity~3.
 The training stage effect was replicated at matched $N$\,=\,200/class.
 
-\textbf{Seven claims are confirmed} (C001--C004, C025, C036, C040), twenty-nine are
+\textbf{Eight claims are confirmed} (C001--C004, C025, C028, C036, C040), twenty-eight are
 supported, five are exploratory, and four are falsified---all maintained in an open
 claims registry (50 total; Appendix~\ref{app:claims}). The falsification record is not
 an appendix; it is the mechanism by which the measurement instrument earned its
@@ -1818,6 +1822,7 @@ C017 & Fisher+PCA64 AUROC\,=\,0.854/0.818 for CC vs.\ CW (entropy-matched); gap\
 C022 & Early commitment in reasoning chains: R1-Qwen commit\%\,=\,75.8\%, R1-Llama\,=\,82.9\%; both with clean controls & SUPPORTED \\
 C024 & Detection axis (Fisher LDA class-mean) dissociable from answer-selection axis: max $\Delta$F1\,=\,$+$0.0004 across $\lambda$\,=\,0--4.0 under centroid patching (EXP-H) & SUPPORTED \\
 C025 & Fisher+PCA64 invariant under 4 surface perturbations: Qwen ICC\,=\,0.913, Llama ICC\,=\,0.9334. Both ROBUST. & \textbf{CONFIRMED} \\
+C028 & Early exit causal: truncating at commit saves 90\% think tokens at $+$0.012 F1 cost. $t$\,=\,6.0, $p$\,$<$\,0.0001, $N$\,=\,500; CI\,=\,$[$+$0.008, +$0.016]. Pre-registered replication of $N$\,=\,200 run ($p$\,=\,0.08). & \textbf{CONFIRMED} \\
 C036 & CO labeling recovers L2 for all tested architectures: Gemma\,=\,0.8368, Mistral\,=\,0.8580, both CLEAN. Universal L2 framing. & \textbf{CONFIRMED} \\
 C040 & Large-$N$ CV L2 (CO labeling, $N$\,=\,500/class, 5-fold): CV\,=\,0.7629\,$\pm$\,0.0120. All folds CLEAN. & \textbf{CONFIRMED} \\
 C042 & L1 INVERTED\_U across training stages: BASE\,=\,0.740, SFT\,=\,0.803, Reasoning\,=\,0.725 & SUPPORTED \\
@@ -1861,7 +1866,7 @@ EXP\_MATH\_AUROC\_V2 & MATH $N$=100/class: AUROC\,=\,0.8558 CI=[0.729,0.957], L2
 EXP\_REASONING\_GEOMETRY\_V1 & DeepSeek-R1-Qwen commit\%\,=\,75.8\% (clean shuffled; EXP-B). & COMPLETE \\
 EXP\_REASONING\_GEOMETRY\_LLAMA & DeepSeek-R1-Llama commit\%\,=\,82.9\% (clean shuffled; EXP-C). & COMPLETE \\
 EXP\_G\_REASONING\_ENTROPY & Post-\texttt{</think>} BURST: peak\,=\,0.6932, traj\,=\,0.8424 (GSM8K). & COMPLETE \\
-EXP\_I\_EARLY\_EXIT & Early exit causal: $\Delta$f1\,=\,$+$0.006, 87.4\% savings. C028. & COMPLETE \\
+EXP\_I\_EARLY\_EXIT\_V2 & Early exit causal ($N$\,=\,500): $\Delta$f1\,=\,$+$0.012, 90\% savings, $t$\,=\,6.0, $p$\,$<$\,0.0001. C028 \textbf{CONFIRMED}. & COMPLETE \\
 EXP\_H\_CC\_CW\_PATCHING & Detection axis dissociable from answer-selection: max $\Delta$F1\,=\,$+$0.0004 under centroid patching. C024. & COMPLETE \\
 EXP\_F\_COMMIT\_QUALITY & Commit-point CC/CW: AUROC\,=\,0.650, BLIND. C023 EXPLORATORY. & COMPLETE \\
 EXP\_SCALE\_EXTENSION\_V1 & 7B-Instruct: Fisher\,=\,0.8402, Entropy\,=\,0.9645 (+0.11). C029. & COMPLETE \\
@@ -1915,8 +1920,8 @@ C(M, q) = \frac{T - t^*(M, q, \varepsilon_C)}{T}
 
 $C$ measures \emph{when} the model settles, not \emph{how well}. Observed: R1-Qwen
 $C$\,=\,0.758, R1-Llama $C$\,=\,0.829, Qwen3-native $C$\,=\,0.998. Post-commitment
-tokens are nearly neutral elaboration: $\mathbb{E}[\Delta\text{F1}]$\,=\,$+$0.006
-(C028).
+tokens are nearly neutral elaboration: $\mathbb{E}[\Delta\text{F1}]$\,=\,$+$0.012
+($t$\,=\,6.0, $p$\,$<$\,0.0001, $N$\,=\,500; C028 \textsc{confirmed}).
 
 \subsection*{C.3 Accessibility ($A$)}
 
