@@ -144,34 +144,39 @@ This design avoids the most common confound in probing work: conflating epistemi
 A wrong answer can reflect either parametric retrieval failure or correct retrieval of
 wrong information. The bilateral oracle separates these by construction.
 
-\paragraph{What we find.}
+\paragraph{Contributions.}
+\begin{enumerate}[leftmargin=2em, label=\arabic*.]
+\item \textbf{Bilateral oracle protocol.}
+  A two-pass behavioral labeling design assigns \textsc{param}/\textsc{ctx\_dep}
+  labels without accessing hidden states, creating an entropy-matched zone where
+  all output-space signals are blind by construction. This is the enabling
+  methodological contribution: it makes the L2 confabulation-detection task tractable.
 
-\textbf{The central finding (L2 + causal test):}
-In the entropy-matched confident zone---where output statistics are blind by
-construction---Fisher+PCA64 at L26 step-1 achieves AUROC\,=\,0.854 for
-\textsc{confident\_correct} vs \textsc{confident\_wrong} (gap\,=\,0.240 over entropy;
-large-$N$ cross-validated at CV\,=\,0.7629\,$\pm$\,0.0120, $N$\,=\,500/class). CO
-labeling extends detection to three confirmed CO architectures (Gemma\,=\,0.8368,
-Mistral\,=\,0.8580; C036~\textsc{confirmed}; Llama CO INCONCLUSIVE---C047). To test whether this detection geometry
-causally controls answer selection, we patch along the Fisher LDA class-mean axis
-(EXP-H): max $\Delta$F1\,=\,$+$0.0004, indistinguishable from zero. Consistent with
-\citet{cox2026decoding}: the correctness-reading axis and the answer-writing axis are
-empirically dissociable.
+\item \textbf{Confabulation geometry (L2).}
+  In the entropy-matched zone, Fisher+PCA64 at L26 step-1 achieves AUROC\,=\,0.854
+  (gap\,=\,0.240 over entropy; CV\,=\,0.7629\,$\pm$\,0.0120, $N$\,=\,500/class;
+  C040~\textsc{confirmed}). CO labeling extends detection to three confirmed
+  architectures (Gemma\,=\,0.8368, Mistral\,=\,0.8580; C036~\textsc{confirmed};
+  Llama CO INCONCLUSIVE---C047).
 
-\textbf{Scope context (L1):}
-For knowledge-source routing (L1), output entropy achieves higher AUROC than Fisher
-(0.87--0.90 vs.\ 0.73--0.85). L1 is primarily a confident/uncertain distinction;
-Fisher is redundant with entropy here. This is not a negative result: it characterizes
-the task's information content and confirms Fisher is uniquely essential only at L2.
+\item \textbf{Causal dissociation (EXP-H).}
+  Centroid patching along the Fisher LDA class-mean axis at $\lambda$\,=\,0--4.0
+  across all probed layers yields max $\Delta$F1\,=\,$+$0.0004---indistinguishable
+  from zero. The direction that reads correctness does not write answers,
+  consistent with \citet{cox2026decoding}.
 
-\textbf{Additional finding (L3):}
-Reasoning-distilled models commit to their answer direction within 25\%
-of think-block tokens, across three architectures and two training lineages
-(R1-Qwen commit\%\,=\,75.8\%, R1-Llama\,=\,82.9\%, Qwen3\,=\,99.8\%; C049 threshold-invariant).
-Truncating generation at the commit point costs $+$0.012~F1 at 90\% token
-savings---established causally, not observationally (EXP-I, $N$\,=\,500, $t$\,=\,6.0,
-$p$\,$<$\,0.0001; C028 \textsc{confirmed}). The confabulation probe also transfers to
-commit-point hidden states (EXP-F; AUROC\,=\,0.6500).
+\item \textbf{Commit-point causal validation (L3, EXP-I).}
+  Reasoning models commit to answer direction within 25\% of think tokens across
+  three architectures and two training lineages. Truncating at the commit point
+  costs $+$0.012~F1 at 90\% token savings---a causal result, not observational
+  ($N$\,=\,500, $t$\,=\,6.0, $p$\,$<$\,0.0001; C028~\textsc{confirmed}).
+\end{enumerate}
+
+\noindent\textbf{Scope boundary.}
+At L1 (knowledge-source routing), output entropy achieves 0.87--0.90 AUROC and
+Fisher adds little---the task is a confident/uncertain distinction and Fisher is
+redundant with entropy. Fisher is essential only at L2, where the entropy-matched
+zone forces hidden-state measurement.
 
 \paragraph{Measurement precedes mechanism.}
 Astronomy measured planetary periods before Newton formulated the inverse-square law.
@@ -1605,7 +1610,7 @@ does not predict which sites support effective editing (causal intervention). EX
 exhibits the same structure: we localize the CC/CW distinction in the Fisher LDA
 direction, but patching that direction does not edit the outcome.
 This is further supported by \citet{hiddenerror2026}, who find that hidden-state
-probes achieve 0.95~AUROC for detecting CoT reasoning errors from the first step, yet
+probes achieve 0.79~AUROC from step~1 for detecting CoT reasoning errors (peak 0.95 across all steps), yet
 four intervention methods---activation steering, probe-guided best-of-$N$,
 self-correction, and activation patching---all fail to correct them, suggesting the
 hidden-state signal is diagnostic rather than causally sufficient for outcome control.
