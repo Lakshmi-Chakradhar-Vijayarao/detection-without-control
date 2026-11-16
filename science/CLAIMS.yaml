@@ -773,7 +773,8 @@ claims:
       4.02% (Δ<-0.05), establishing an asymmetric directional benefit (1.9:1 help:hurt
       ratio on large-effect items). The commit point timing readout is accurate:
       99.5% of questions commit within budget.
-    status: SUPPORTED
+    status: FALSIFIED
+    withdrawn: "2026-11-01: commit probe trained on early vs late chain steps tracks chain position, not commitment; result withdrawn"
     evidence:
       - experiment: EXP_I_EARLY_EXIT_CAUSAL_V1
         model: deepseek_r1_distill_qwen_1.5b
@@ -1224,7 +1225,8 @@ claims:
     last_updated: "2026-07-15"
 
   - id: C037
-    status: SUPPORTED
+    status: FALSIFIED
+    withdrawn: "2026-11-01: commit probe trained on early vs late chain steps tracks chain position, not commitment; result withdrawn"
     short: "CAUSAL: truncating DeepSeek reasoning at Fisher commit point saves 87% of tokens at +0.4% F1 cost"
     claim: >
       Fisher+PCA64 detects a geometrical commitment point at ~13% of the think block in

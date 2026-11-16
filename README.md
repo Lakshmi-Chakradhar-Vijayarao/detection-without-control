@@ -1,5 +1,11 @@
 # Detection Without Control
 
+> **Status update (November 2026). Read before citing.**
+> - **The commit-point result is withdrawn.** Claims C028 and C037, the paper's "commit-point causal validation" (~90% thinking-token savings), are withdrawn. A later instrument check (1 Nov 2026) showed the commit probe was trained on early vs late chain steps, so it tracks **position in the reasoning chain**, not answer commitment. Any claim built on it should be disregarded.
+> - **The confabulation-detection results (L2) are preliminary.** They have not been tested against question-difficulty, length and P(True) baselines. In the author's later work, such baselines absorbed similar probe signals.
+> - **The causal-patching null (EXP-H) stands as reported.**
+> - The author's current, audited work is listed at https://github.com/Lakshmi-Chakradhar-Vijayarao (see `baseline-increment` and the CV).
+
 **The hidden-state direction that best separates confident-correct from confident-wrong answers is not the direction that causally controls which answer the model generates.**
 
 This repository accompanies the paper:
